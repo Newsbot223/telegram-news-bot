@@ -9,6 +9,17 @@ import requests
 from datetime import datetime, timezone, timedelta
 import openai
 import difflib
+import builtins
+
+def safe_print(*args, **kwargs):
+    try:
+        builtins._original_print(*args, **kwargs)
+    except UnicodeEncodeError:
+        fixed_args = [str(arg).encode("utf-8", errors="replace").decode("utf-8") for arg in args]
+        builtins._original_print(*fixed_args, **kwargs)
+
+builtins._original_print = print
+builtins.print = safe_print
 
 # Настройки кодировки для Render
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
