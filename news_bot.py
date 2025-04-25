@@ -53,7 +53,7 @@ def fix_formatting(text):
     clean_lines[0] = f"*{clean_lines[0].strip('*').strip()}*"
     for i in range(1, len(clean_lines)):
         if clean_lines[i].startswith('"') or clean_lines[i].startswith("“"):
-            clean_lines[i] = f"> {clean_lines[i].strip('\"“”')}"
+            clean_lines[i] = f"> {clean_lines[i].strip('\"')}"
         if clean_lines[i].startswith(">") and not clean_lines[i].startswith("> "):
             clean_lines[i] = clean_lines[i].replace(">", "> ", 1)
     return "\n\n".join(clean_lines)
