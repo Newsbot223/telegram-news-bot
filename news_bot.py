@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+os.environ["PYTHONIOENCODING"] = "utf-8"
 import feedparser
 import time
 import requests
