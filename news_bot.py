@@ -8,12 +8,12 @@ import difflib
 
 # === НАСТРОЙКИ ===
 client = openai.OpenAI(
-    api_key=os.getenv("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"),
+    api_key=os.getenv("OPENAI_API_KEY"),
     base_url="https://openrouter.ai/api/v1"
 )
 
-TELEGRAM_TOKEN = os.getenv("7309535483:AAFXCaS56qT-NKn5SHkh7pU5UTB2b5xCsM8")
-CHAT_ID = os.getenv("1005485753")
+TELEGRAM_TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 
 # === RSS ИСТОЧНИКИ ===
 rss_feeds = [
